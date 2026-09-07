@@ -9,7 +9,6 @@
   background-color: var(--background-color);
   font-family: var(--font-family);
   color: var(--article-title-color);
-  margin: 0px;
   font-size: var(--font-size);
   font-weight: 400;
   line-height: var(--text-line-height);
@@ -183,7 +182,7 @@
 }
 
 .article-link:hover {
-  text-decoration: underline;    
+  border-bottom: 1px solid currentColor;   
 }
 
 .article-link:focus-visible {
@@ -214,12 +213,6 @@
 
 /******************************************/
 @media (width >= 768px) {
-  :root {
-    --global-padding: 20px;
-    --large-title-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    --content-gap: 80px;
-    --content-padding-block: 60px;    
-  }
 
   .header {
     grid-template-rows: repeat(3, 1fr);
@@ -279,6 +272,7 @@
     min-width: 0;
     min-height: 0;
     object-fit: cover;
+    object-position: center;
   }  
 
   .galary-title {
@@ -332,9 +326,14 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   
+  .section-attention > .section-title {
+    grid-column: 1 / -1;
+    width: calc((100% - 40px) / 3);
+  }
+
   .article-attention {
     grid-column: auto;
-    grid-row: 2;
+    grid-row: auto;
   }
  
 }
